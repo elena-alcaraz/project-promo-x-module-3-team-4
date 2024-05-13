@@ -4,7 +4,7 @@ const Preview = (props) => {
   return (
     <section className="preview">
       <div className="projectImage"></div>
-      <CardPreview userData= {props.userData}/>
+      <CardPreview userData= {props.userData} />
     </section>
   )
 }

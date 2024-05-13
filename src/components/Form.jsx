@@ -1,4 +1,4 @@
-
+import GetAvatar from "./GetAvatar";
 
 const Form = (props) => {
 
@@ -30,10 +30,11 @@ const Form = (props) => {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <label htmlFor="image" className="button">Subir foto del proyecto</label>
-        <input className="addForm__hidden" type="file" name="image" id="image" />
-        <label htmlFor="photo" className="button">Subir foto de la autora</label>
-        <input className="addForm__hidden" type="file" name="photo" id="photo" />
+        
+        <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} id={"image"} text="Subir foto de proyecto"/>
+
+        <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} id={"photo"} text="Subir foto de la autora"/>
+
         <button className="button--large">Guardar proyecto</button>
       </fieldset>
       

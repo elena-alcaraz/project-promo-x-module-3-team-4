@@ -1,3 +1,4 @@
+import Profile from "./Profile";
 
 
 const CardPreview = ({userData}) => {
@@ -8,7 +9,7 @@ const CardPreview = ({userData}) => {
         <h2 className="card__projectTitle"><span className="card__projectTitle--text">Personal project card</span></h2>
 
         <div className="card__author">
-          <div className="card__authorPhoto"></div>
+          <Profile photo={photo}/>
           <p className="card__job">
           {userData.job || "Full stack Developer"}
           </p>

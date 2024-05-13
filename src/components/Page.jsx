@@ -14,8 +14,8 @@ const Page = (props) => {
       <a className="button--link" href="./">Ver proyectos</a>
     </section>
 
-    <Preview userData= {props.userData}/>
-    <Form function={props.function} />
+    <Preview userData= {props.userData} updateAvatar={props.updateAvatar}/>
+    <Form function={props.function} updateAvatar={props.updateAvatar} />
   </main>
   )
 }

@@ -40,6 +40,10 @@ function App() {
 
   }
 
+  const updateAvatar = (avatar, image) => {
+    setUserData({...userData, [image]: avatar});
+  };
+
 
   return (
   <>
@@ -47,7 +51,7 @@ function App() {
 
     <Header/>
 
-    <Page function= {changeData}  userData= {userData}/>
+    <Page function= {changeData}  userData= {userData} updateAvatar={updateAvatar} />
 
     <Footer/>
    </div>
