@@ -6,10 +6,10 @@ import defaultAvatar from '../images/avatar.webp';
 function Profile({photo}) {
   const avatar = photo === '' ? defaultAvatar : photo;
   return (
-    <div className="card__authorPhoto">
+    <div className="card__authorPhoto" style={{ backgroundImage: `url(${avatar})` }} >
       <div
         className="profile__avatar"
-        /* style={{ backgroundImage: `url(${avatar})` }} */
+       
       ></div>
     </div>
   );

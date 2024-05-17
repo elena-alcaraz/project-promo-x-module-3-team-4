@@ -9,31 +9,31 @@ const Form = (props) => {
   }
 
   return (
-    <form className="addForm" onChange={handleForm}>
+    <form className="addForm">
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
-        <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto" />
-        <input className="addForm__input" type="text" name="slogan" id="slogan" placeholder="Slogan"/>
+        <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto" onChange={handleForm} value={props.userData.name} />
+        <input className="addForm__input" type="text" name="slogan" id="slogan" placeholder="Slogan" onChange={handleForm} value={props.userData.slogan}/>
         <div className="addForm__2col">
-          <input className="addForm__input" type="url" name="repo" id="repo" placeholder="Repositorio" />
-          <input className="addForm__input" type="url" name="demo" id="demo" placeholder="Demo" />
+          <input className="addForm__input" type="url" name="repo" id="repo" placeholder="Repositorio" onChange={handleForm} value={props.userData.repo} />
+          <input className="addForm__input" type="url" name="demo" id="demo" placeholder="Demo" onChange={handleForm} value={props.userData.demo} />
         </div>         
-        <input className="addForm__input" type="text" name="technologies" id="technologies" placeholder="Tecnologías" />
-        <textarea className="addForm__input" type="text" name="desc" id="desc" placeholder="Descripción" rows="5" ></textarea>
+        <input className="addForm__input" type="text" name="technologies" id="technologies" placeholder="Tecnologías" onChange={handleForm} value={props.userData.technologies}/>
+        <textarea className="addForm__input" type="text" name="desc" id="desc" placeholder="Descripción" rows="5" onChange={handleForm} value={props.userData.desc}></textarea>
       </fieldset>
 
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre la autora</legend>
-        <input className="addForm__input" type="text" name="autor" id="autor" placeholder="Nombre" />
-        <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo" />
+        <input className="addForm__input" type="text" name="autor" id="autor" placeholder="Nombre" onChange={handleForm} value={props.userData.autor}/>
+        <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo"onChange={handleForm}  value={props.userData.job}/>
       </fieldset>
 
       <fieldset className="addForm__group--upload">
         
-        <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} id={"image"} text="Subir foto de proyecto"/>
+        <GetAvatar  updateAvatar={props.updateAvatar} id="image" text="Subir foto de proyecto"/>
 
-        <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} id={"photo"} text="Subir foto de la autora"/>
+        <GetAvatar  updateAvatar={props.updateAvatar} id="photo" text="Subir foto de la autora"/>
 
         <button className="button--large">Guardar proyecto</button>
       </fieldset>

@@ -5,7 +5,6 @@ const Page = (props) => {
 
 
     
-
   return (
     <main className="main">
     <section className="hero">
@@ -15,7 +14,7 @@ const Page = (props) => {
     </section>
 
     <Preview userData= {props.userData} updateAvatar={props.updateAvatar}/>
-    <Form function={props.function} updateAvatar={props.updateAvatar} />
+    <Form function={props.function} updateAvatar={props.updateAvatar} userData= {props.userData} />
   </main>
   )
 }
