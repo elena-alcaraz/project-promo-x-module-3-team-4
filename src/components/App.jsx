@@ -10,6 +10,8 @@ function App() {
 
   const [userData, setUserData] = useState({name: "", slogan: "", technologies: "", repo: "", demo: "", desc: "", autor: "", job: "", image: "", photo: ""});
 
+  const [url, setUrl] = useState("");
+
   
   const changeData = (fieldName,inputValue) => {
 

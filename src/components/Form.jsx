@@ -35,7 +35,9 @@ const Form = (props) => {
 
         <GetAvatar  updateAvatar={props.updateAvatar} id="photo" text="Subir foto de la autora"/>
 
-        <button className="button--large">Guardar proyecto</button>
+        <button className="button--large" onClick={}>Guardar proyecto</button>
+
+        <p>{url}</p>
       </fieldset>
       
     </form>
