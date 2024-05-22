@@ -1,11 +1,19 @@
 import GetAvatar from "./GetAvatar";
+import fetchData from "./fetch";
 
-const Form = (props) => {
+const Form = (props ) => {
 
   const handleForm = (ev) =>{
     const fieldName = ev.target.id;
     const inputValue = ev.target.value;
     props.function(fieldName, inputValue);
+  }
+
+  const handleClick = (ev) => {
+    ev.preventDefault()
+    fetchData(props.userData).then((response) => {
+      
+    })
   }
 
   return (
@@ -35,9 +43,9 @@ const Form = (props) => {
 
         <GetAvatar  updateAvatar={props.updateAvatar} id="photo" text="Subir foto de la autora"/>
 
-        <button className="button--large" onClick={}>Guardar proyecto</button>
+        <button className="button--large" onClick={handleClick}>Guardar proyecto</button>
 
-        <p>{url}</p>
+        <p>{props.url}</p>
       </fieldset>
       
     </form>

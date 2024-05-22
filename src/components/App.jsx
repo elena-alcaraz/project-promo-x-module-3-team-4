@@ -53,7 +53,7 @@ function App() {
 
     <Header/>
 
-    <Page function= {changeData}  userData= {userData} updateAvatar={updateAvatar} />
+    <Page function= {changeData}  userData= {userData} updateAvatar={updateAvatar} url={url} setUrl={setUrl} />
 
     <Footer/>
    </div>
