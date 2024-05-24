@@ -1,5 +1,5 @@
 import GetAvatar from "./GetAvatar";
-import fetchData from "./fetch";
+import fetchData from "./Fetch";
 
 const Form = (props ) => {
 
@@ -12,7 +12,11 @@ const Form = (props ) => {
   const handleClick = (ev) => {
     ev.preventDefault()
     fetchData(props.userData).then((response) => {
-      
+      if (response.success) {
+        props.setUrl(response.cardURL)
+      } else {
+        props.setUrl("Falta: " + )
+      }
     })
   }
 
