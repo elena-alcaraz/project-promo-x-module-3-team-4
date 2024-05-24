@@ -10,6 +10,8 @@ function App() {
 
   const [userData, setUserData] = useState({name: "", slogan: "", technologies: "", repo: "", demo: "", desc: "", autor: "", job: "", image: "", photo: ""});
 
+  const [url, setUrl] = useState("");
+
   
   const changeData = (fieldName,inputValue) => {
 
@@ -51,7 +53,7 @@ function App() {
 
     <Header/>
 
-    <Page function= {changeData}  userData= {userData} updateAvatar={updateAvatar} />
+    <Page function= {changeData}  userData= {userData} updateAvatar={updateAvatar} url={url} setUrl={setUrl} />
 
     <Footer/>
    </div>

@@ -1,12 +1,49 @@
 import GetAvatar from "./GetAvatar";
+import fetchData from "./Fetch";
 
-const Form = (props) => {
+const Form = (props ) => {
 
   const handleForm = (ev) =>{
     const fieldName = ev.target.id;
     const inputValue = ev.target.value;
     props.function(fieldName, inputValue);
   }
+
+    const fieldNames = {
+    name: "Nombre del proyecto",
+    slogan: "Slogan",
+    repo: "Repositorio",
+    demo: "Demo",
+    technologies: "Tecnologías",
+    desc: "Descripción",
+    autor: "Nombre del autor",
+    job: "Trabajo del autor"
+  };
+
+  const validateFields = (userData) => {
+    const requiredFields = ["name", "slogan", "repo", "demo", "technologies", "desc", "autor", "job"];
+    const missingFields = requiredFields.filter(field => !userData[field] || userData[field].trim() === "");
+    return missingFields;
+  };
+
+  const handleClick = (ev) => {
+    ev.preventDefault()
+    
+    const missingFields = validateFields(props.userData);
+    if (missingFields.length > 0) {
+      const missingFieldNames = missingFields.map(field => fieldNames[field]);
+      props.setUrl("Faltan los siguientes campos: " + missingFieldNames.join(", "));
+    } else {
+      fetchData(props.userData).then((response) => {
+        if (response.success) {
+          props.setUrl(<a className="card-url" href={response.cardURL} target="_blank">Click aquí para ver tu tarjeta</a>);
+        } else {
+          props.setUrl("Hubo un error al generar la URL.");
+        }
+    })
+  }
+}
+
 
   return (
     <form className="addForm">
@@ -28,19 +65,22 @@ const Form = (props) => {
         <input className="addForm__input" type="text" name="autor" id="autor" placeholder="Nombre" onChange={handleForm} value={props.userData.autor}/>
         <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo"onChange={handleForm}  value={props.userData.job}/>
       </fieldset>
-
+      <div className="card-url-box"><p>{props.url}</p></div>
       <fieldset className="addForm__group--upload">
-        
+             
         <GetAvatar  updateAvatar={props.updateAvatar} id="image" text="Subir foto de proyecto"/>
 
         <GetAvatar  updateAvatar={props.updateAvatar} id="photo" text="Subir foto de la autora"/>
 
-        <button className="button--large">Guardar proyecto</button>
+        <button className="button--large" onClick={handleClick}>Guardar proyecto</button>
+
+        
       </fieldset>
       
     </form>
     
   );
 };
+
 
 export default Form;

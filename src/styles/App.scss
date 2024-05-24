@@ -435,3 +435,19 @@ fieldset {
   .icon__github {
     background-image: url('../images/icons/github.svg');
   }
+
+  // CARD URL
+
+  .card-url-box {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+
+  .card-url {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color:#c0b7e8;
+    }
+  }

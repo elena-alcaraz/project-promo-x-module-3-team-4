@@ -14,7 +14,7 @@ const Page = (props) => {
     </section>
 
     <Preview userData= {props.userData} updateAvatar={props.updateAvatar}/>
-    <Form function={props.function} updateAvatar={props.updateAvatar} userData= {props.userData} />
+    <Form function={props.function} updateAvatar={props.updateAvatar} userData= {props.userData} url={props.url} setUrl={props.setUrl}/>
   </main>
   )
 }
